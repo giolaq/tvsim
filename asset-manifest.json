@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tvsim/static/css/main.d2756840.css",
+    "main.js": "/tvsim/static/js/main.ec5d507a.js",
+    "index.html": "/tvsim/index.html",
+    "main.d2756840.css.map": "/tvsim/static/css/main.d2756840.css.map",
+    "main.ec5d507a.js.map": "/tvsim/static/js/main.ec5d507a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2756840.css",
+    "static/js/main.ec5d507a.js"
+  ]
+}
