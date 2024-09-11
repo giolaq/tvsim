@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
- const LivingRoomFPV = () => {
+const LivingRoomFPV = () => {
   const [isTvOn, setIsTvOn] = useState(true);
   const [activeCategory, setActiveCategory] = useState('Home');
   const [selectedGridItem, setSelectedGridItem] = useState(0);
@@ -29,6 +29,11 @@ import './App.css';
     setVisibleRange({ start, end });
   }, [selectedGridItem]);
 
+  const handleZoom = () => {
+    setIsZooming(true);
+    setIsZoomed(prev => !prev);
+    setTimeout(() => setIsZooming(false), 500); // Match this to your transition duration
+  };
 
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -46,10 +51,10 @@ import './App.css';
     };
   }, []);
 
-  const handleRemoteButton = (direction) => {
-    if (!isTvOn && direction !== 'power') return;
+    const handleRemoteButton = (button) => {
+    if (!isTvOn && button !== 'power') return;
 
-    switch (direction) {
+    switch (button) {
       case 'up':
         if (isDrawerActive && isDrawerOpen) {
           setActiveCategory(prev => {
@@ -93,14 +98,22 @@ import './App.css';
           setSelectedGridItem(prev => Math.min(gridItems.length - 1, prev + 1));
         }
         break;
+      case 'select':
+        // Handle select button press
+        console.log('Select button pressed');
+        // You can add more functionality here, such as opening a selected item
+        break;
       case 'power':
         setIsTvOn(prev => !prev);
+        break;
+      case 'zoom':
+        handleZoom();
         break;
       default:
         break;
     }
   };
-
+   
   const toggleDrawer = () => {
     setIsDrawerOpen(prev => !prev);
     if (!isDrawerOpen) {
@@ -114,7 +127,7 @@ import './App.css';
         <div className="floor"></div>
         <div className="wall left-wall"></div>
         <div className="wall right-wall"></div>
-        <div className="tv-stand"></div>
+        <div className="tv-stand" onClick={handleZoom}></div>
         
         <div className={`tv ${isZooming ? 'zooming' : ''}`}>
           {isTvOn ? (
@@ -151,17 +164,28 @@ import './App.css';
         </div>
         
         <div className="remote">
-          <button 
-            className="power-button"
-            onClick={() => handleRemoteButton('power')}
-          >
-            ⏻
-          </button>
+         <div className="button-group">
+            <button 
+              className="power-button"
+              onClick={() => handleRemoteButton('power')}
+            >
+              ⏻
+            </button>
+            {isZoomed && (
+              <button 
+                className="zoom-button"
+                onClick={() => handleRemoteButton('zoom')}
+              >
+                Z
+              </button>
+            )}
+          </div>
           <div className="directional-pad">
             <button className="up" onClick={() => handleRemoteButton('up')}>▲</button>
             <button className="right" onClick={() => handleRemoteButton('right')}>▶</button>
             <button className="down" onClick={() => handleRemoteButton('down')}>▼</button>
             <button className="left" onClick={() => handleRemoteButton('left')}>◀</button>
+            <button className="select" onClick={() => handleRemoteButton('select')}>OK</button>
           </div>
         </div>
       </div>

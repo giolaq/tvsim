@@ -64,14 +64,21 @@
   background-color: #4b5563;
   transform: translateX(-50%) rotateX(60deg);
   transform-origin: bottom;
-  transition: opacity 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
 }
 
+.tv-stand:hover {
+  background-color: #6b7280;
+}
+
+.zoomed .tv-stand {
+  opacity: 0;
+  pointer-events: none;
+}
 .zoomed .floor,
 .zoomed .wall,
-.zoomed .tv-stand {
-  opacity: 0.3; /* Reduced opacity to show blur effect */
-}
+
 
 .tv {
   position: absolute;
@@ -209,11 +216,11 @@
   position: fixed;
   bottom: 5%;
   right: 5%;
-  width: 10%;
-  max-width: 80px;
+  width: 14%;
+  max-width: 120px;
   background-color: #1f2937;
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 12px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -222,50 +229,104 @@
   z-index: 20;
 }
 
-.zoomed .remote {
-  opacity: 0.7;
-  transform: scale(0.8);
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  width: 100%;
 }
 
-.power-button {
-  width: 32px;
-  height: 32px;
-  background-color: #ef4444;
+.power-button,
+.zoom-button {
+  width: 36px;
+  height: 36px;
   border: none;
   border-radius: 50%;
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.power-button {
+  background-color: #ef4444;
+  margin-right: 8px;
+}
+
+.zoom-button {
+  background-color: #10b981;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .directional-pad {
   position: relative;
-  width: 100%;
-  height: 64px;
+  width: 100px;
+  height: 100px;
 }
 
 .directional-pad button {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   background-color: #4b5563;
   border: none;
   border-radius: 50%;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
-.directional-pad .up { top: 0; left: 50%; transform: translateX(-50%); }
-.directional-pad .right { top: 50%; right: 0; transform: translateY(-50%); }
-.directional-pad .down { bottom: 0; left: 50%; transform: translateX(-50%); }
-.directional-pad .left { top: 50%; left: 0; transform: translateY(-50%); }
+.directional-pad .up { top: 5px; left: 50%; transform: translateX(-50%); }
+.directional-pad .right { top: 50%; right: 5px; transform: translateY(-50%); }
+.directional-pad .down { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.directional-pad .left { top: 50%; left: 5px; transform: translateY(-50%); }
+.directional-pad .select { 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  background-color: #3b82f6;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.directional-pad .zoom-out {
+  top: -15px;
+  right: -15px;
+  width: 24px;
+  height: 24px;
+  background-color: #10b981;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.zoomed .remote {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Add hover effects for better interactivity */
+.power-button:hover,
+.zoom-button:hover,
+.directional-pad button:hover {
+  filter: brightness(1.2);
+}
+
+.directional-pad .select:hover {
+  background-color: #2563eb;
+}
+
+.directional-pad .zoom-out:hover {
+  background-color: #059669;
+}
 
 @media (max-width: 768px) {
   .remote {
