@@ -6,9 +6,14 @@
     "auditLog": "/Users/laquigi/Projects/tvsim/logs/.bc9ca5c21c68602620307151a4af7f8cca2dd355-audit.json",
     "files": [
         {
-            "date": 1724320906772,
-            "name": "/Users/laquigi/Projects/tvsim/logs/error-2024-08-22.log",
-            "hash": "45ee6dc2275a3a70e70b14ecbdea6fde"
+            "date": 1725456656403,
+            "name": "/Users/laquigi/Projects/tvsim/logs/error-2024-09-04.log",
+            "hash": "dd864ee6886b4374bcd779d980ff7ca6"
+        },
+        {
+            "date": 1726064265138,
+            "name": "/Users/laquigi/Projects/tvsim/logs/error-2024-09-11.log",
+            "hash": "ce96bc220975c6ce719bc3f2ff7e0857"
         }
     ]
 }

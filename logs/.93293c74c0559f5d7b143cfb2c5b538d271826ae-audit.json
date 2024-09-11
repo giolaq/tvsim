@@ -6,9 +6,14 @@
     "auditLog": "/Users/laquigi/Projects/tvsim/logs/.93293c74c0559f5d7b143cfb2c5b538d271826ae-audit.json",
     "files": [
         {
-            "date": 1724320906773,
-            "name": "/Users/laquigi/Projects/tvsim/logs/keplerCliNative-2024-08-22.log",
-            "hash": "cbff030c05076856c8920e505bf9d424"
+            "date": 1725456656405,
+            "name": "/Users/laquigi/Projects/tvsim/logs/keplerCliNative-2024-09-04.log",
+            "hash": "d28f3283277e81387c346843ad98ff8f"
+        },
+        {
+            "date": 1726064265140,
+            "name": "/Users/laquigi/Projects/tvsim/logs/keplerCliNative-2024-09-11.log",
+            "hash": "ac0e23a84711faa41e238bccdb339df0"
         }
     ]
 }
